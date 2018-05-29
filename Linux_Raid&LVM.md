@@ -7,24 +7,24 @@ Linux_Raid&LVM.md
 - 多个重要副本备份 reduntancy
 
 ## 常见方案
-### RAID 0
+#### RAID 0
 - 串联，提升读写速度
 - 无法备份或恢复数据
 
-### RAID 1
+#### RAID 1
 - 绑定两块以上的硬件设备，数据同时写到多块硬盘上
 - 发生故障后使用热交换的方式恢复数据正常使用
 - 利用率下降
 
-### RAID 5
+#### RAID 5
 - 每块磁盘中的parity部分储存其他硬盘的奇偶校验信息
 
-### RAID 10
+#### RAID 10
 - RAID 1+RAID 0技术的一个组合体
 - 先组成"RAID 0" 保证数据的安全，再用"RAID 1"串联提升读写速度
 
 ## mdadm 创建和管理RAID
-### 一块物理设备出现损坏不能继续使用
+#### 一块物理设备出现损坏不能继续使用
 - 删除设备
 	
 	```sh
@@ -34,7 +34,7 @@ Linux_Raid&LVM.md
 	mdadm /dev/md0 -a /dev/sdb
 
 	```
-### 磁盘阵列+备份盘
+#### 磁盘阵列+备份盘
 	```sh
 	mdadm -Cv /dev/md0 -n 3 -l 5 -x 1 /dev/sdb /dev/sdc /dev/sdd /dev/sde
 	: -x 备份盘

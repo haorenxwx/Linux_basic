@@ -1,13 +1,13 @@
 Linux_Iptables&Firewall.md
 
 # Firewall tools
-## RHEL 6：iptable:
+#### RHEL 6：iptable:
 - 配置好的防火墙策略交由内核层面的netfilter网络过滤器来处理
  
-## REHL 7: firewalld
+#### REHL 7: firewalld
 - 把配置好的防火墙策略交由内核层面的nftables包过滤框架来处理
 
-## 策略
+#### 策略
 - 从上到下读取配置规则，找到合适的立刻匹配，没有合适的执行默认规则
 - Reject: 显示 Destination Port Unreachable
 - Drop: 显示 0 received, 100% packet loss
