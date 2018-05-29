@@ -1,30 +1,30 @@
 Linux_Raid&LVM.md 
 
-#RAID
-##定义
+# RAID
+## 定义
 - 多个硬盘组成的阵列
 - 分散读写提升性能
 - 多个重要副本备份 reduntancy
 
-##常见方案
-###RAID 0
+## 常见方案
+### RAID 0
 - 串联，提升读写速度
 - 无法备份或恢复数据
 
-###RAID 1
+### RAID 1
 - 绑定两块以上的硬件设备，数据同时写到多块硬盘上
 - 发生故障后使用热交换的方式恢复数据正常使用
 - 利用率下降
 
-###RAID 5
+### RAID 5
 - 每块磁盘中的parity部分储存其他硬盘的奇偶校验信息
 
-###RAID 10
+### RAID 10
 - RAID 1+RAID 0技术的一个组合体
 - 先组成"RAID 0" 保证数据的安全，再用"RAID 1"串联提升读写速度
 
-##mdadm 创建和管理RAID
-###一块物理设备出现损坏不能继续使用
+## mdadm 创建和管理RAID
+### 一块物理设备出现损坏不能继续使用
 - 删除设备
 	
 	```sh
@@ -34,15 +34,15 @@ Linux_Raid&LVM.md
 	mdadm /dev/md0 -a /dev/sdb
 
 	```
-###磁盘阵列+备份盘
+### 磁盘阵列+备份盘
 	```sh
 	mdadm -Cv /dev/md0 -n 3 -l 5 -x 1 /dev/sdb /dev/sdc /dev/sdd /dev/sde
 	: -x 备份盘
 	```
 
-#LVM
+# LVM
 
-##定义
+## 定义
 
 - 用户可以根据实际需求调整硬盘分区大小
 - VG, volume group(卷组)
@@ -50,9 +50,9 @@ Linux_Raid&LVM.md
 - LV, logical volumn(逻辑卷)
 - PE, physical extent(基本单元)
 
-##部署
+## 部署
 
-	```sh
+	```
 	pvcreate /dev/sdb /dev/sdc 
 	:添加两块硬盘设备支持LVM技术
 	vgceate storage /dev/sdb /dev/sdc
@@ -66,7 +66,7 @@ Linux_Raid&LVM.md
 	:查看并写入配置文件
 	```
 
-##扩容
+## 扩容
 
 	```
 	umount /linuxprobe

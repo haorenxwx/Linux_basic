@@ -1,18 +1,18 @@
 Linux_Iptables&Firewall.md
 
-#Firewall tools
-##RHEL 6：iptable:
+# Firewall tools
+## RHEL 6：iptable:
 - 配置好的防火墙策略交由内核层面的netfilter网络过滤器来处理
-
-##REHL 7: firewalld
+ 
+## REHL 7: firewalld
 - 把配置好的防火墙策略交由内核层面的nftables包过滤框架来处理
 
-##策略
+## 策略
 - 从上到下读取配置规则，找到合适的立刻匹配，没有合适的执行默认规则
 - Reject: 显示 Destination Port Unreachable
 - Drop: 显示 0 received, 100% packet loss
 
-#Iptable
+# Iptable
 - 查看已有的防火墙规则链: iptables -L
 - 清空已有的防火墙规则链: iptables -F
 - 设置默认规则: iptables -P INPUT DROP（默认链规则只能是drop不能rejrct）
@@ -49,8 +49,8 @@ Linux_Iptables&Firewall.md
 	service iptables save
 	```
 
-#Firewalld
+# Firewalld
 - 加入区域概念，同事有几套防火墙策略根据不同场景选择
 
-#SNAT(source network translation)
+# SNAT(source network translation)
 - 解决IP地址匮乏，多个内网用户通过一个外网IP接入Internet
