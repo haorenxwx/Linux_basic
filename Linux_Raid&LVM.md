@@ -41,7 +41,9 @@ Linux_Raid&LVM.md
 	```
 
 #LVM
+
 ##定义
+
 - 用户可以根据实际需求调整硬盘分区大小
 - VG, volume group(卷组)
 - PV, physical volumn(物理卷)
@@ -49,6 +51,7 @@ Linux_Raid&LVM.md
 - PE, physical extent(基本单元)
 
 ##部署
+
 	```sh
 	pvcreate /dev/sdb /dev/sdc 
 	:添加两块硬盘设备支持LVM技术
@@ -62,7 +65,9 @@ Linux_Raid&LVM.md
 	echo "/dev/storage/vo /linuxprobe ext4 defaults 0 0" >> /etc/fstab
 	:查看并写入配置文件
 	```
+
 ##扩容
+
 	```
 	umount /linuxprobe
 	:若需要扩容，需要卸载 设备和挂载点的关联
